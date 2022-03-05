@@ -29,10 +29,10 @@ function updateView() {
           cells.showCells[col][row].color;
       } else if (cells.showCells[col][row].isWall) {
         document.getElementById(targetId).style["background-color"] =
-          configTetris.wallColor;
+          config.wallColor;
       } else {
         document.getElementById(targetId).style["background-color"] =
-          configTetris.tableBackground;
+          config.tableBackground;
       }
     });
   });

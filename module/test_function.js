@@ -1,5 +1,15 @@
-if (configTetris.debugMode) {
+if (config.testMode) {
   console.group("debug");
+
+  [
+    [1, 2],
+    [3, 4],
+  ].forEach((_, col) =>
+    _.forEach((e, row) => {
+      console.log("Col:", col, ", Ro:", row, "e:", e);
+    })
+  );
+
   console.group("trasnpose");
   test(transpose([[1]]), [[1]]);
   test(
@@ -78,5 +88,6 @@ if (configTetris.debugMode) {
   );
 
   console.groupEnd();
+
   console.groupEnd();
 }
