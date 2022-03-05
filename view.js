@@ -3,29 +3,34 @@
 
 function makeTable() {
   let table = document.createElement("table");
-
   let tbody = document.createElement("tbody");
-  for (let col = 0; col < configTetris.tableHeight; col++) {
+
+  cells.showCells.forEach((arr, col) => {
     let tr = document.createElement("tr");
-    for (let row = 0; row < configTetris.tableWidth; row++) {
+    arr.forEach((e, row) => {
       let td = document.createElement("td");
       td.id = `cell-${col}-${row}`;
       // td.textContent = `${col}-${row}`; // debug
       tr.appendChild(td);
-    }
+    });
     tbody.appendChild(tr);
-  }
-  table.appendChild(tbody);
+  });
 
+  table.appendChild(tbody);
   document.body.appendChild(table);
 }
 
 function updateView() {
-  for (let col = 0; col < configTetris.tableHeight; col++) {
-    for (let row = 0; row < configTetris.tableWidth; row++) {
+  cells.showCells.forEach((arr, col) => {
+    arr.forEach((e, row) => {
       const targetId = `cell-${col}-${row}`;
-      document.getElementById(targetId).style["background-color"] =
-        cells.showCells[col][row].color;
-    }
-  }
+      if (cells.showCells[col][row].isBlock) {
+        document.getElementById(targetId).style["background-color"] =
+          cells.showCells[col][row].color;
+      } else if (cells.showCells[col][row].isWall) {
+        document.getElementById(targetId).style["background-color"] =
+          configTetris.wallColor;
+      }
+    });
+  });
 }

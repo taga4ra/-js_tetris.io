@@ -3,14 +3,33 @@
 
 function generateCell() {
   const cells = [];
-  for (let col = 0; col < configTetris.tableHeight; col++) {
-    const tmp_row = [];
-    for (let row = 0; row < configTetris.tableWidth; row++) {
+  for (
+    let col = 0;
+    col < configTetris.tableHeight + configTetris.wallThickess;
+    col++
+  ) {
+    let tmp_row = [];
+    for (
+      let row = 0;
+      row < configTetris.tableWidth + configTetris.wallThickess * 2;
+      row++
+    ) {
       tmp_row.push({
         isBlock: false,
+        isWall: false,
         color: "black",
       });
+      if (
+        row === 0 ||
+        row === configTetris.tableWidth + configTetris.wallThickess * 2 - 1
+      ) {
+        tmp_row[row].isWall = true;
     }
+    }
+    if (col === configTetris.tableHeight + configTetris.wallThickess - 1) {
+      tmp_row.map((e) => (e.isWall = true));
+    }
+
     cells.push(tmp_row);
   }
   return cells;
