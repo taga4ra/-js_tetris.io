@@ -20,13 +20,12 @@ function makeTable() {
   document.body.appendChild(table);
 }
 
-
 function updateView() {
   for (let col = 0; col < configTetris.tableHeight; col++) {
     for (let row = 0; row < configTetris.tableWidth; row++) {
       const targetId = `cell-${col}-${row}`;
       document.getElementById(targetId).style["background-color"] =
-        cells[col][row].color;
+        cells.showCells[col][row].color;
     }
   }
 }
