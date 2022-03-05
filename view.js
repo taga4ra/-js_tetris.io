@@ -30,6 +30,9 @@ function updateView() {
       } else if (cells.showCells[col][row].isWall) {
         document.getElementById(targetId).style["background-color"] =
           configTetris.wallColor;
+      } else {
+        document.getElementById(targetId).style["background-color"] =
+          configTetris.tableBackground;
       }
     });
   });

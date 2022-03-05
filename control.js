@@ -17,7 +17,7 @@ function generateCell() {
       tmp_row.push({
         isBlock: false,
         isWall: false,
-        color: "black",
+        color: configTetris.tableBackground,
       });
       if (
         row === 0 ||
