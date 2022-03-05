@@ -100,6 +100,19 @@ function cellMoveRight() {
   }
 }
 
+function rotateMino(mino) {
+  cells.mino.rotateCount %= 4;
+  for (let r = 0; r < cells.mino.rotateCount; r++) {
+    // rotation
+    mino = transpose(mino);
+    mino = mino.map((arr) => arr.reverse());
+  }
+  return mino;
+}
+
+function transpose(arr2d) {
+  return arr2d[0].map((_, col) => arr2d.map((row) => row[col]));
+}
 const mino = {
   isBlock: true,
   color: "white",
