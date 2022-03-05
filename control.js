@@ -4,22 +4,22 @@
 function generateCell() {
   const cells = [];
   for (let col = 0; col < config.tableHeight + config.wallThick; col++) {
-    let tmp_row = [];
+    let tmpRow = [];
     for (let row = 0; row < config.tableWidth + config.wallThick * 2; row++) {
-      tmp_row.push({
+      tmpRow.push({
         isBlock: false,
         isWall: false,
         color: config.tableBackground,
       });
       if (row === 0 || row === config.tableWidth + config.wallThick * 2 - 1) {
-        tmp_row[row].isWall = true;
+        tmpRow[row].isWall = true;
       }
     }
     if (col === config.tableHeight + config.wallThick - 1) {
-      tmp_row.map((e) => (e.isWall = true));
+      tmpRow.map((e) => (e.isWall = true));
     }
 
-    cells.push(tmp_row);
+    cells.push(tmpRow);
   }
   return cells;
 }
@@ -94,8 +94,6 @@ function isValidPos(mino, posY, posX) {
 
 function isMovable(futureY, futureX) {
   const mino = getNowMino();
-  console.log("mino:", mino);
-
   if (isValidPos(mino, futureY, futureX)) {
     for (let col = 0; col < mino.length; col++) {
       for (let row = 0; row < mino[col].length; row++) {
@@ -116,7 +114,7 @@ function isMovable(futureY, futureX) {
 function minoMoveDown() {
   if (cells.mino.isMovable(cells.minoPosY + 1, cells.minoPosX)) {
     cells.minoPosY++;
-    showMino();
+    cells.mino.show();
   } else {
     cells.mino.put();
     cells.mino.reset();
@@ -162,8 +160,6 @@ function showMino() {
 }
 
 function putMino() {
-  console.log("put mino");
-
   const mino = getNowMino();
   mino.forEach((_, col) =>
     _.forEach((e, row) => {
@@ -173,19 +169,40 @@ function putMino() {
       }
     })
   );
-  test(cells.showCells, cells.fixedCells);
   cells.showCells = _.cloneDeep(cells.fixedCells);
 }
 
 function resetMino() {
-  console.log("reset mino");
-
   cells.mino.minoType = getRandomMinoType();
   cells.mino.rotateCount = Math.floor(Math.random() * 4);
   cells.mino.color = getRandomMinoColor();
   cells.minoPosY = 0;
-  // cells.minoPosX = config.wallThick + Math.floor(Math.random() * config.tableWidth);
-  cells.minoPosX = 3;
+  cells.minoPosX = config.wallThick + Math.floor(Math.random() * (config.tableWidth - 4)); // random
+  // cells.minoPosX = 3;
+}
+function isRemovableLine(arr) {
+  return arr.every((e) => e.isBlock === true || e.isWall === true);
+}
+
+function checkLine() {
+  for (let row = 0; row < cells.fixedCells.length - config.wallThick; row++) {
+    const arr = cells.fixedCells[row];
+    if (isRemovableLine(arr)) {
+      cells.fixedCells.splice(row, 1);
+      const newRow = [];
+      for (let row = 0; row < config.tableWidth + config.wallThick * 2; row++) {
+        newRow.push({
+          isBlock: false,
+          isWall: false,
+          color: config.tableBackground,
+        });
+      }
+      newRow[0].isWall = true;
+      newRow[config.tableWidth + config.wallThick * 2 - 1].isWall = true;
+      cells.fixedCells.unshift(newRow);
+      cells.showCells = _.cloneDeep(cells.fixedCells);
+    }
+  }
 }
 
 function update() {
@@ -195,7 +212,9 @@ function update() {
   cells.showCells = _.cloneDeep(cells.fixedCells);
   getUserInput();
   cells.mino.moveDown();
+  updateView();
 
+  cells.checkLine();
   updateView();
   console.groupEnd();
 }

@@ -86,7 +86,27 @@ if (config.testMode) {
       [16, 12, 8, 4],
     ]
   );
+  console.groupEnd();
 
+  console.group("isRemovableLine");
+  test(isRemovableLine([{ isBlock: false, isWall: false }]), false);
+  test(isRemovableLine([{ isBlock: false, isWall: true }]), true);
+  test(isRemovableLine([{ isBlock: true, isWall: false }]), true);
+  test(isRemovableLine([{ isBlock: true, isWall: true }]), true);
+  test(
+    isRemovableLine([
+      { isBlock: true, isWall: true },
+      { isBlock: false, isWall: false },
+    ]),
+    false
+  );
+  test(
+    isRemovableLine([
+      { isBlock: true, isWall: false },
+      { isBlock: false, isWall: true },
+    ]),
+    true
+  );
   console.groupEnd();
 
   console.groupEnd();

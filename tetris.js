@@ -15,11 +15,14 @@ const cells = {
     moveRight: minoMoveRight,
     rotate: rotateMino,
     isMovable: isMovable,
+    show: showMino,
     put: putMino,
     reset: resetMino,
   },
   minoPosX: 2,
   minoPosY: 0,
+  // function
+  checkLine: checkLine,
 };
 
 // draw table
@@ -28,6 +31,8 @@ makeTable();
 updateView();
 
 // run game
-window.addEventListener("load", () => {
-  window.setInterval(update, config.dropSpeed);
-});
+if (!config.testMode) {
+  window.addEventListener("load", () => {
+    window.setInterval(update, config.dropSpeed);
+  });
+}
