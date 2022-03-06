@@ -38,6 +38,7 @@ const config = {
 };
 
 const descriptionHtml = [
+  ["", "", "Keyboard", "", "Description"],
   [
     '<img id="left-btn" src="https://www.svgrepo.com/show/342958/arrow-left-circle.svg">',
     '<img id="right-btn" src="https://www.svgrepo.com/show/342960/arrow-right-circle.svg"></img>',
@@ -46,7 +47,10 @@ const descriptionHtml = [
     "move",
   ],
   ['<img id="rotate-btn" src="https://www.svgrepo.com/show/165393/rotate.svg">', "", "up", ":", "rotate"],
-  ['<img id="reset-btn" src="https://www.svgrepo.com/show/287476/cross-error.svg"> ', "", "r", ":", "reset"],
+  ['<img id="change-btn" src="https://www.svgrepo.com/show/85637/change.svg"> ', "", "c", ":", "chage next mino"],
+  ['<img id="reset-btn" src="https://www.svgrepo.com/show/325101/delete-circled-outline.svg"> ', "", "r", ":", "reset"],
 ];
 
-const imgContentsId = ["js-icon", "left-btn", "right-btn", "rotate-btn", "reset-btn"];
+const descriptionImgID = ["left-btn", "right-btn", "rotate-btn", "change-btn", "reset-btn"];
+
+const imgContentsId = ["js-icon", "left-btn", "right-btn", "rotate-btn", "change-btn", "reset-btn"];

@@ -61,6 +61,35 @@ function makeDescription() {
   h2.append(table);
 }
 
+function applyOnclick() {
+  const setOnclickFunc = (id, func) => {
+    const target = document.querySelector(`#${id}`);
+    target.onclick = func;
+  };
+
+  descriptionImgID.forEach((id) => {
+    switch (id) {
+      case "left-btn":
+        setOnclickFunc(id, cells.mino.moveLeft);
+        break;
+      case "right-btn":
+        setOnclickFunc(id, cells.mino.moveRight);
+        break;
+      case "rotate-btn":
+        setOnclickFunc(id, (_) => cells.mino.rotateCount++);
+        break;
+      case "change-btn":
+        setOnclickFunc(id, cells.mino.reset);
+        break;
+      case "reset-btn":
+        setOnclickFunc(id, cells.resetGame);
+        break;
+      default:
+        break;
+    }
+  });
+}
+
 function makeScoreBoard() {
   const board = document.querySelector("#score");
   const scoreNum = document.createElement("h2");

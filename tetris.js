@@ -44,6 +44,9 @@ makePlayground();
 //make link
 makeLink();
 
+// enable img controler
+applyOnclick();
+
 // resize img
 resizeImgHeight(imgContentsId);
 
