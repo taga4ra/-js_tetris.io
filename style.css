@@ -85,3 +85,7 @@ h3 {
   border-spacing: 2px;
   border-color: grey;
 }
+
+#link a {
+  padding: 10px;
+}

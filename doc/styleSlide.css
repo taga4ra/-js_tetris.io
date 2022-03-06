@@ -1,0 +1,21 @@
+h1 {
+  font-family: Georgia, serif;
+  display: block;
+  font-size: 2em;
+  /* margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px; */
+  font-weight: bold;
+  text-align: center;
+}
+
+#js-icon {
+  border: 1px solid whitesmoke;
+  height: 1.5em;
+}
+
+.div {
+  display: none;
+  margin: auto;
+}
