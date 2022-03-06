@@ -36,9 +36,9 @@ function resizeImgHeight(arrayOfId) {
 
 function makeDescription() {
   const h1 = document.querySelector("h1");
-  const h2 = document.createElement("h2");
-  h1.after(h2);
-  h2.className = "description";
+  const h3 = document.createElement("h3");
+  h1.after(h3);
+  h3.className = "description";
 
   // description tabe
   let table = document.createElement("table");
@@ -58,36 +58,7 @@ function makeDescription() {
 
   table.appendChild(tbody);
 
-  h2.append(table);
-}
-
-function applyOnclick() {
-  const setOnclickFunc = (id, func) => {
-    const target = document.querySelector(`#${id}`);
-    target.onclick = func;
-  };
-
-  descriptionImgID.forEach((id) => {
-    switch (id) {
-      case "left-btn":
-        setOnclickFunc(id, cells.mino.moveLeft);
-        break;
-      case "right-btn":
-        setOnclickFunc(id, cells.mino.moveRight);
-        break;
-      case "rotate-btn":
-        setOnclickFunc(id, (_) => cells.mino.rotateCount++);
-        break;
-      case "change-btn":
-        setOnclickFunc(id, cells.mino.reset);
-        break;
-      case "reset-btn":
-        setOnclickFunc(id, cells.resetGame);
-        break;
-      default:
-        break;
-    }
-  });
+  h3.append(table);
 }
 
 function makeScoreBoard() {

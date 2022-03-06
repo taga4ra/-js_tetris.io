@@ -28,6 +28,7 @@ const cells = {
   minoPosX: 2,
   minoPosY: 0,
   // function
+  updateGame: updateGame,
   checkLine: checkLine,
   checkGameOver: checkGameOver,
   updateScore: updateScore,
@@ -53,8 +54,9 @@ resizeImgHeight(imgContentsId);
 updateView();
 
 // run game
+let timerId = 0;
 if (!config.testMode) {
   window.addEventListener("load", () => {
-    window.setInterval(update, config.dropSpeed);
+    timerId = window.setInterval(cells.updateGame, config.dropSpeed);
   });
 }

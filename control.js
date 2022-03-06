@@ -240,11 +240,12 @@ function checkGameOver() {
   });
 }
 
-function update() {
+function updateGame() {
   if (config.debugMode) {
     console.group("");
     console.log("minoPosX:", "X:", cells.minoPosX, "Y:", cells.minoPosY);
     console.log("nextMino:", "type:", cells.nextMino.minoType, "color:", cells.nextMino.color);
+    console.log("dropSpeed:", config.dropSpeed);
   }
 
   cells.showCells = _.cloneDeep(cells.fixedCells);
@@ -261,3 +262,33 @@ function update() {
     console.groupEnd();
   }
 }
+
+function applyOnclick() {
+  const setOnclickFunc = (id, func) => {
+    const target = document.querySelector(`#${id}`);
+    target.onclick = func;
+  };
+
+  descriptionImgID.forEach((id) => {
+    switch (id) {
+      case "left-btn":
+        setOnclickFunc(id, cells.mino.moveLeft);
+        break;
+      case "right-btn":
+        setOnclickFunc(id, cells.mino.moveRight);
+        break;
+      case "rotate-btn":
+        setOnclickFunc(id, (_) => cells.mino.rotateCount++);
+        break;
+      case "change-btn":
+        setOnclickFunc(id, cells.mino.reset);
+        break;
+      case "reset-btn":
+        setOnclickFunc(id, cells.resetGame);
+        break;
+      default:
+        break;
+    }
+  });
+}
+

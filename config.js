@@ -33,19 +33,14 @@ const config = {
     ],
   },
   minoColors: ["red", "orange", "pink", "blue", "yellow", "green", "lime", "violet"],
-  debugMode: false,
+  debugMode: true,
   testMode: false,
 };
 
 const descriptionHtml = [
   ["", "", "Keyboard", "", "Description"],
-  [
-    '<img id="left-btn" src="https://www.svgrepo.com/show/342958/arrow-left-circle.svg">',
-    '<img id="right-btn" src="https://www.svgrepo.com/show/342960/arrow-right-circle.svg"></img>',
-    "left/right",
-    ":",
-    "move",
-  ],
+  ['<img id="left-btn" src="https://www.svgrepo.com/show/342958/arrow-left-circle.svg">', "left", ":", "move"],
+  ['<img id="right-btn" src="https://www.svgrepo.com/show/342960/arrow-right-circle.svg"></img>', "right", ":", "move"],
   ['<img id="rotate-btn" src="https://www.svgrepo.com/show/165393/rotate.svg">', "", "up", ":", "rotate"],
   ['<img id="change-btn" src="https://www.svgrepo.com/show/85637/change.svg"> ', "", "c", ":", "chage next mino"],
   ['<img id="reset-btn" src="https://www.svgrepo.com/show/325101/delete-circled-outline.svg"> ', "", "r", ":", "reset"],
