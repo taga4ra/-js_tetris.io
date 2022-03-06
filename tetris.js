@@ -20,12 +20,18 @@ const cells = {
     put: putMino,
     reset: resetMino,
   },
+  nextMino: {
+    minoType: getRandomMinoType(),
+    rotateCount: Math.floor(Math.random() * 4),
+    color: getRandomMinoColor(),
+  },
   minoPosX: 2,
   minoPosY: 0,
   // function
   checkLine: checkLine,
   checkGameOver: checkGameOver,
   updateScore: updateScore,
+  showNextMino: showNextMino,
 };
 
 // draw description

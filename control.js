@@ -173,9 +173,16 @@ function putMino() {
 }
 
 function resetMino() {
-  cells.mino.minoType = getRandomMinoType();
-  cells.mino.rotateCount = Math.floor(Math.random() * 4);
-  cells.mino.color = getRandomMinoColor();
+  // set nextMino
+  cells.mino.minoType = _.cloneDeep(cells.nextMino.minoType);
+  cells.mino.rotateCount = _.cloneDeep(cells.nextMino.rotateCount);
+  cells.mino.color = _.cloneDeep(cells.nextMino.color);
+
+  // update nextMino
+  cells.nextMino.minoType = getRandomMinoType();
+  cells.nextMino.rotateCount = Math.floor(Math.random() * 4);
+  cells.nextMino.color = getRandomMinoColor();
+
   cells.minoPosY = 0;
   cells.minoPosX = config.wallThick + Math.floor(Math.random() * (config.tableWidth - 4)); // random
   // cells.minoPosX = 3;
@@ -221,7 +228,8 @@ function checkGameOver() {
 function update() {
   if (config.debugMode) {
     console.group("");
-    console.log("cells.minoPosX:", "X:", cells.minoPosX, "Y:", cells.minoPosY);
+    console.log("minoPosX:", "X:", cells.minoPosX, "Y:", cells.minoPosY);
+    console.log("nextMino:", "type:", cells.nextMino.minoType, "color:", cells.nextMino.color);
   }
 
   cells.showCells = _.cloneDeep(cells.fixedCells);

@@ -35,7 +35,13 @@ h2 {
   margin: 0.5em;
 }
 
-#score_num {
+#scoreNum {
+  border: 5px solid grey;
+  padding: 0.5em;
+  margin: 1em;
+}
+
+#minoType {
   border: 5px solid grey;
   padding: 0.5em;
   margin: 1em;

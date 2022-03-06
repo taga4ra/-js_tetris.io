@@ -69,8 +69,12 @@ function makeScoreBoard() {
 }
 
 function updateScore() {
-  const score_num = document.querySelector("#score_num");
-  score_num.innerHTML = `SCORE: ${String(cells.score)}<br>(clear line)`;
+}
+
+function showNextMino() {
+  const minoType = document.querySelector("#minoType");
+  minoType.textContent = `Next: `;
+  minoType.textContent += `${cells.nextMino.minoType}`;
 }
 
 function makePlayground() {
@@ -88,7 +92,9 @@ function makePlayground() {
 
   const divScore = document.createElement("div");
   divScore.id = "score";
-  rightPanel.append(divScore);
+  const divNext = document.createElement("div");
+  divNext.id = "nextMino";
+  rightPanel.append(divScore, divNext);
 
   divPlay.append(leftPanel, rightPanel);
   document.body.appendChild(divPlay);
@@ -98,6 +104,8 @@ function makePlayground() {
 
   // draw score
   makeScoreBoard();
+
+  drawNextMinoBoard();
 }
 
 function makeLink() {
@@ -125,4 +133,7 @@ function updateView() {
 
   //score
   cells.updateScore();
+
+  // show next mino
+  cells.showNextMino();
 }
