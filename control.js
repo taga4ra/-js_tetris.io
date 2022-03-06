@@ -205,6 +205,18 @@ function checkLine() {
   }
 }
 
+function checkGameOver() {
+  const topFixed = cells.fixedCells[0];
+  const topShow = cells.showCells[0];
+
+  topFixed.forEach((_, i) => {
+    if (topFixed[i].isBlock === true && topFixed[i].isBlock === true) {
+      console.log(i);
+      location.reload();
+    }
+  });
+}
+
 function update() {
   if (config.debugMode) {
     console.group("");
@@ -219,7 +231,8 @@ function update() {
   cells.checkLine();
   updateView();
 
+  cells.checkGameOver();
   if (config.debugMode) {
-  console.groupEnd();
+    console.groupEnd();
   }
 }

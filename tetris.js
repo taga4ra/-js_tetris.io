@@ -23,6 +23,7 @@ const cells = {
   minoPosY: 0,
   // function
   checkLine: checkLine,
+  checkGameOver: checkGameOver,
 };
 
 // draw table
