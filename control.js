@@ -58,13 +58,21 @@ function getUserInput() {
           console.log("right");
           cells.mino.moveRight();
           break;
+        // case "Space":
+        //   console.log("pause");
+        //   location.reload();
+        //   break;
+        case "c":
+          console.log("chage mino");
+          cells.mino.reset();
+          break;
         case "q":
           console.log("quit");
-          location.reload();
+          cells.resetGame();
           break;
         case "r":
           console.log("reset");
-          location.reload();
+          cells.resetGame();
           break;
         default:
           console.log("other");
@@ -186,6 +194,13 @@ function resetMino() {
   cells.minoPosY = 0;
   cells.minoPosX = config.wallThick + Math.floor(Math.random() * (config.tableWidth + config.wallThick * 2 - 4)); // random
 }
+
+function resetCellsAndMino() {
+  cells.showCells = generateCell();
+  cells.fixedCells = generateCell();
+  cells.mino.reset();
+}
+
 function isRemovableLine(arr) {
   return arr.every((e) => e.isBlock === true || e.isWall === true);
 }

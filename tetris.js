@@ -32,6 +32,7 @@ const cells = {
   checkGameOver: checkGameOver,
   updateScore: updateScore,
   showNextMino: showNextMino,
+  resetGame: resetCellsAndMino,
 };
 
 // draw description
