@@ -184,8 +184,8 @@ function resetMino() {
   cells.nextMino.color = getRandomMinoColor();
 
   cells.minoPosY = 0;
-  cells.minoPosX = config.wallThick + Math.floor(Math.random() * (config.tableWidth - 4)); // random
-  // cells.minoPosX = 3;
+  cells.minoPosX =
+    config.wallThick + Math.floor(Math.random() * (config.tableWidth + config.wallThick * 2 - cells.mino[0].length)); // random
 }
 function isRemovableLine(arr) {
   return arr.every((e) => e.isBlock === true || e.isWall === true);
@@ -218,7 +218,7 @@ function checkGameOver() {
   const topShow = cells.showCells[0];
 
   topFixed.forEach((_, i) => {
-    if (topFixed[i].isBlock === true && topFixed[i].isBlock === true) {
+    if (topFixed[i].isBlock === true) {
       console.log(i);
       location.reload();
     }
