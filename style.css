@@ -1,4 +1,31 @@
-td {
+h1,
+h2 {
+  font-family: Georgia, serif;
+  display: block;
+  font-size: 2em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+#js-icon {
+  border: 1px none;
+  /* height: 2rem; */
+}
+
+#desc-table {
+  border: 1px none white;
+  padding: 10px;
+}
+
+#game-table td {
+  /* border: 1px solid white; */
   border: 1px solid;
   padding: 10px;
+  border-collapse: separate;
+  box-sizing: border-box;
+  border-spacing: 2px;
+  border-color: grey;
 }

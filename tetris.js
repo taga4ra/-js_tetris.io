@@ -28,6 +28,12 @@ const cells = {
 // draw table
 makeTable();
 
+// draw description
+makeDescription();
+
+// resize img
+resizeImgHeight(imgContentsId);
+
 updateView();
 
 // run game

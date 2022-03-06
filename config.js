@@ -36,3 +36,17 @@ const config = {
   debugMode: true,
   testMode: false,
 };
+
+const descriptionHtml = [
+  [
+    '<img id="left-btn" src="https://www.svgrepo.com/show/342958/arrow-left-circle.svg">',
+    '<img id="right-btn" src="https://www.svgrepo.com/show/342960/arrow-right-circle.svg"></img>',
+    "left/right",
+    ":",
+    "move",
+  ],
+  ['<img id="rotate-btn" src="https://www.svgrepo.com/show/165393/rotate.svg">', "", "up", ":", "rotate"],
+  ['<img id="reset-btn" src="https://www.svgrepo.com/show/287476/cross-error.svg"> ', "", "r", ":", "reset"],
+];
+
+const imgContentsId = ["js-icon", "left-btn", "right-btn", "rotate-btn", "reset-btn"];

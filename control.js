@@ -206,8 +206,10 @@ function checkLine() {
 }
 
 function update() {
-  console.group("");
-  console.log("cells.minoPosX:", "X:", cells.minoPosX, "Y:", cells.minoPosY);
+  if (config.debugMode) {
+    console.group("");
+    console.log("cells.minoPosX:", "X:", cells.minoPosX, "Y:", cells.minoPosY);
+  }
 
   cells.showCells = _.cloneDeep(cells.fixedCells);
   getUserInput();
@@ -216,5 +218,8 @@ function update() {
 
   cells.checkLine();
   updateView();
+
+  if (config.debugMode) {
   console.groupEnd();
+  }
 }
