@@ -88,7 +88,8 @@ function getUserInput() {
 
 function getNowMino() {
   const shape = config.minoTypes[cells.mino.minoType];
-  return cells.mino.rotate(shape);
+  cells.mino.rotateCount %= 4;
+  return cells.mino.rotate(shape, cells.mino.rotateCount);
 }
 
 function isValidPos(mino, posY, posX) {
@@ -141,9 +142,8 @@ function minoMoveRight() {
   }
 }
 
-function rotateMino(mino) {
-  cells.mino.rotateCount %= 4;
-  for (let r = 0; r < cells.mino.rotateCount; r++) {
+function rotateMino(mino, rotation) {
+  for (let r = 0; r < rotation; r++) {
     // rotation
     mino = transpose(mino);
     mino = mino.map((arr) => arr.reverse());
@@ -291,4 +291,3 @@ function applyOnclick() {
     }
   });
 }
-

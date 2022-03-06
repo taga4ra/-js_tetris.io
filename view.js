@@ -96,8 +96,7 @@ function showNextMino() {
 
   let tbody = document.createElement("tbody");
 
-  // const nextMino = cells.mino.rotate(config.minoTypes[cells.mino.minoType]);
-  const minoMat = config.minoTypes[cells.nextMino.minoType];
+  const minoMat = rotateMino(config.minoTypes[cells.nextMino.minoType], cells.nextMino.rotateCount);
   minoMat.forEach((arr, col) => {
     let tr = document.createElement("tr");
     arr.forEach((e, row) => {

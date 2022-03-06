@@ -76,7 +76,7 @@ h3 {
   margin: 1em;
 }
 
-#next-mino-table {
+#next-mino-table td {
   /* border: 1px solid white; */
   border: 1px solid;
   padding: 10px;
