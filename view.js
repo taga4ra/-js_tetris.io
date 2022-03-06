@@ -70,9 +70,16 @@ function makeScoreBoard() {
 
 function drawNextMinoBoard() {
   const nextMino = document.querySelector("#nextMino");
-  const minoType = document.createElement("h2");
-  minoType.id = "minoType";
-  nextMino.appendChild(minoType);
+  const printNextMino = document.createElement("h2");
+  printNextMino.id = "nextMinoType";
+  nextMino.appendChild(printNextMino);
+
+  // append tabel
+  const table = document.createElement("table");
+  table.id = "next-mino-table";
+  const tbody = document.createElement("tbody");
+  table.appendChild(tbody);
+  nextMino.appendChild(table);
 }
 
 function updateScore() {
@@ -81,9 +88,38 @@ function updateScore() {
 }
 
 function showNextMino() {
-  const minoType = document.querySelector("#minoType");
-  minoType.textContent = `Next: `;
-  minoType.textContent += `${cells.nextMino.minoType}`;
+  const printNextMinoType = document.querySelector("#nextMinoType");
+  printNextMinoType.textContent = `Next: `;
+  printNextMinoType.textContent += `${cells.nextMino.minoType}`;
+
+  const minoTable = document.querySelector("#next-mino-table");
+
+  let tbody = document.createElement("tbody");
+
+  // const nextMino = cells.mino.rotate(config.minoTypes[cells.mino.minoType]);
+  const minoMat = config.minoTypes[cells.nextMino.minoType];
+  minoMat.forEach((arr, col) => {
+    let tr = document.createElement("tr");
+    arr.forEach((e, row) => {
+      let td = document.createElement("td");
+      td.id = `next-mino-${col}-${row}`;
+      if (e) {
+        td.style["background-color"] = cells.nextMino.color;
+      } else {
+        td.style["background-color"] = config.tableBackground;
+      }
+
+      if (config.debugMode) {
+        td.innerHTML = e; // debug
+      }
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+  });
+
+  minoTable.removeChild(minoTable.childNodes[0]);
+  minoTable.appendChild(tbody);
+  printNextMinoType.after(minoTable);
 }
 
 function makePlayground() {
