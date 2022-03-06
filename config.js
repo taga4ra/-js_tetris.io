@@ -33,7 +33,7 @@ const config = {
     ],
   },
   minoColors: ["red", "orange", "pink", "blue", "yellow", "green", "lime", "violet"],
-  debugMode: true,
+  debugMode: false,
   testMode: false,
 };
 

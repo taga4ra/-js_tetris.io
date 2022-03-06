@@ -1,10 +1,5 @@
 function test(actual, expected) {
-  if (
-    (typeof actual === "object" || typeof expected === "object") &&
-    JSON.stringify(actual) === JSON.stringify(expected)
-  ) {
-    console.log("Test PASSED.");
-  } else if (actual === expected) {
+  if (_.isEqual(actual, expected)) {
     console.log("Test PASSED.");
   } else {
     console.error("Test FAILED. Keep trying!");
