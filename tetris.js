@@ -3,6 +3,7 @@
 
 // setup status cells
 const cells = {
+  score: 0,
   showCells: generateCell(),
   fixedCells: generateCell(),
   mino: {
@@ -24,13 +25,17 @@ const cells = {
   // function
   checkLine: checkLine,
   checkGameOver: checkGameOver,
+  updateScore: updateScore,
 };
-
-// draw table
-makeTable();
 
 // draw description
 makeDescription();
+
+// make playground
+makePlayground();
+
+//make link
+makeLink();
 
 // resize img
 resizeImgHeight(imgContentsId);

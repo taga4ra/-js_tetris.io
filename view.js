@@ -18,7 +18,8 @@ function makeTable() {
   });
 
   table.appendChild(tbody);
-  document.body.appendChild(table);
+  const board = document.querySelector("#board");
+  board.appendChild(table);
 }
 
 function getH1FontSize() {
@@ -60,7 +61,55 @@ function makeDescription() {
   h2.append(table);
 }
 
+function makeScoreBoard() {
+  const board = document.querySelector("#score");
+  const score_num = document.createElement("h2");
+  score_num.id = "score_num";
+  board.appendChild(score_num);
+}
+
+function updateScore() {
+  const score_num = document.querySelector("#score_num");
+  score_num.innerHTML = `SCORE: ${String(cells.score)}<br>(clear line)`;
+}
+
+function makePlayground() {
+  const divPlay = document.createElement("div");
+  divPlay.id = "playground";
+
+  const leftPanel = document.createElement("div");
+  leftPanel.id = "leftPanel";
+  const rightPanel = document.createElement("div");
+  rightPanel.id = "rightPanel";
+
+  const divBoard = document.createElement("div");
+  divBoard.id = "board";
+  leftPanel.append(divBoard);
+
+  const divScore = document.createElement("div");
+  divScore.id = "score";
+  rightPanel.append(divScore);
+
+  divPlay.append(leftPanel, rightPanel);
+  document.body.appendChild(divPlay);
+
+  // draw table
+  makeTable();
+
+  // draw score
+  makeScoreBoard();
+}
+
+function makeLink() {
+  const divPlay = document.querySelector(".playground");
+  const divLink = document.createElement("div");
+  divLink.id = "link";
+
+  document.body.appendChild(divLink);
+}
+
 function updateView() {
+  //cells
   cells.showCells.forEach((arr, col) => {
     arr.forEach((e, row) => {
       const targetId = `cell-${col}-${row}`;
@@ -73,4 +122,7 @@ function updateView() {
       }
     });
   });
+
+  //score
+  cells.updateScore();
 }
