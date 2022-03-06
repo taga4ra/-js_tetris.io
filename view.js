@@ -63,12 +63,21 @@ function makeDescription() {
 
 function makeScoreBoard() {
   const board = document.querySelector("#score");
-  const score_num = document.createElement("h2");
-  score_num.id = "score_num";
-  board.appendChild(score_num);
+  const scoreNum = document.createElement("h2");
+  scoreNum.id = "scoreNum";
+  board.appendChild(scoreNum);
+}
+
+function drawNextMinoBoard() {
+  const nextMino = document.querySelector("#nextMino");
+  const minoType = document.createElement("h2");
+  minoType.id = "minoType";
+  nextMino.appendChild(minoType);
 }
 
 function updateScore() {
+  const scoreNum = document.querySelector("#scoreNum");
+  scoreNum.innerHTML = `SCORE: ${String(cells.score)}<br>(clear line)`;
 }
 
 function showNextMino() {
