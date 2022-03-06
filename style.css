@@ -29,3 +29,14 @@ h2 {
   border-spacing: 2px;
   border-color: grey;
 }
+
+#playground {
+  display: flex;
+  margin: 0.5em;
+}
+
+#score_num {
+  border: 5px solid grey;
+  padding: 0.5em;
+  margin: 1em;
+}

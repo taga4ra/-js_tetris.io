@@ -201,6 +201,7 @@ function checkLine() {
       newRow[config.tableWidth + config.wallThick * 2 - 1].isWall = true;
       cells.fixedCells.unshift(newRow);
       cells.showCells = _.cloneDeep(cells.fixedCells);
+      cells.score++;
     }
   }
 }
@@ -229,6 +230,7 @@ function update() {
   updateView();
 
   cells.checkLine();
+  cells.updateScore();
   updateView();
 
   cells.checkGameOver();
