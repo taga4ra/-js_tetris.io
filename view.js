@@ -161,7 +161,7 @@ function makeLink() {
   srcCode.href = "https://github.com/taga4ra/js_tetris.io";
   srcCode.textContent = "Source Code";
   const slide = document.createElement("a");
-  slide.href = "https://github.com/taga4ra/doc/slide.html";
+  slide.href = "./doc/slide.html";
   slide.textContent = "Slide";
 
   divLink.append(srcCode, slide);
