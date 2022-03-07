@@ -291,3 +291,26 @@ function applyOnclick() {
     }
   });
 }
+
+/**
+ * @see https://qiita.com/mzmz__02/items/8a308e768ae83768a9d5
+ * @see https://developer.mozilla.org/ja/docs/Web/HTTP/Browser_detection_using_the_user_agent
+ */
+function isSmartPhone() {
+  // デバイス幅が640px以下の場合にスマホと判定する
+  return window.matchMedia && window.matchMedia("(max-device-width: 640px)").matches;
+}
+
+function getOnclickFunc(id) {
+  if (id === "left-btn") {
+    return cells.mino.moveLeft;
+  } else if (id === "right-btn") {
+    return cells.mino.moveRight;
+  } else if (id === "rotate-btn") {
+    return (_) => cells.mino.rotateCount++;
+  } else if (id === "change-btn") {
+    return cells.mino.reset;
+  } else if (id === "reset-btn") {
+    return cells.resetGame;
+  }
+}

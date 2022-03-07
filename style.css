@@ -86,6 +86,11 @@ h3 {
   border-color: grey;
 }
 
+#controller {
+  display: flex;
+  justify-content: space-around;
+}
+
 #link {
   display: flex;
   justify-content: center;

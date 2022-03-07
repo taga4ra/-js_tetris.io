@@ -152,6 +152,24 @@ function makePlayground() {
   drawNextMinoBoard();
 }
 
+function drawController() {
+  const divPlay = document.querySelector(".playground");
+  const divController = document.createElement("div");
+  divController.id = "controller";
+
+  controllerElement.forEach((obj) => {
+    const div = document.createElement("div");
+    div.id = obj.id;
+    const img = document.createElement("img");
+    img.src = obj.buttonImage;
+    img.alt = obj.id;
+    img.width = 50;
+    div.appendChild(img);
+    divController.appendChild(div);
+  });
+  document.body.appendChild(divController);
+}
+
 function makeLink() {
   const divPlay = document.querySelector(".playground");
   const divLink = document.createElement("div");

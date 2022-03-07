@@ -2,7 +2,7 @@ const config = {
   wallThick: 1,
   wallColor: "gray",
   tableWidth: 8,
-  tableHeight: 16,
+  tableHeight: 24,
   tableBackground: "white",
   dropSpeed: 500, ///ms
   minoTypes: {
@@ -49,3 +49,31 @@ const descriptionHtml = [
 const descriptionImgID = ["left-btn", "right-btn", "rotate-btn", "change-btn", "reset-btn"];
 
 const imgContentsId = ["js-icon", "left-btn", "right-btn", "rotate-btn", "change-btn", "reset-btn"];
+
+const controllerElement = [
+  {
+    id: "reset-btn",
+    buttonImage: "https://www.svgrepo.com/show/325101/delete-circled-outline.svg",
+    descriptin: "reset",
+  },
+  {
+    id: "left-btn",
+    buttonImage: "https://www.svgrepo.com/show/342958/arrow-left-circle.svg",
+    descriptin: "move left",
+  },
+  {
+    id: "rotate-btn",
+    buttonImage: "https://www.svgrepo.com/show/165393/rotate.svg",
+    descriptin: "rotate",
+  },
+  {
+    id: "right-btn",
+    buttonImage: "https://www.svgrepo.com/show/342960/arrow-right-circle.svg",
+    descriptin: "move right",
+  },
+  {
+    id: "change-btn",
+    buttonImage: "https://www.svgrepo.com/show/85637/change.svg",
+    descriptin: "chage",
+  },
+];

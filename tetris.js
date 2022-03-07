@@ -36,11 +36,27 @@ const cells = {
   resetGame: resetCellsAndMino,
 };
 
-// draw description
-makeDescription();
+if (isSmartPhone()) {
+  // no description
+
+  // set smaller table
+  config.tableHeight = 16;
+  cells.showCells = generateCell();
+  cells.fixedCells = generateCell();
+} else {
+  // draw description
+  makeDescription();
+}
 
 // make playground
 makePlayground();
+
+if (isSmartPhone()) {
+  // draw image controller
+  drawController();
+} else {
+  // notting to do
+}
 
 //make link
 makeLink();
@@ -49,7 +65,7 @@ makeLink();
 applyOnclick();
 
 // resize img
-resizeImgHeight(imgContentsId);
+// resizeImgHeight(imgContentsId);
 
 updateView();
 
