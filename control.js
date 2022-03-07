@@ -301,16 +301,16 @@ function isSmartPhone() {
   return window.matchMedia && window.matchMedia("(max-device-width: 640px)").matches;
 }
 
-function getOnclickFunc(id) {
-  if (id === "left-btn") {
-    return cells.mino.moveLeft;
-  } else if (id === "right-btn") {
-    return cells.mino.moveRight;
-  } else if (id === "rotate-btn") {
-    return (_) => cells.mino.rotateCount++;
-  } else if (id === "change-btn") {
-    return cells.mino.reset;
-  } else if (id === "reset-btn") {
-    return cells.resetGame;
+function showSettingPanel() {
+  const divSettingPanel = document.querySelector("#settingPanel");
+  divSettingPanel.style.visibility = "visible";
+}
+
+function switchDebugMode() {
+  if (config.debugMode) {
+    resetCellsAndMino();
+    config.debugMode = false;
+  } else {
+    config.debugMode = true;
   }
 }
