@@ -2,7 +2,7 @@ const config = {
   wallThick: 1,
   wallColor: "gray",
   tableWidth: 8,
-  tableHeight: 24,
+  tableHeight: 16,
   tableBackground: "white",
   dropSpeed: 500, ///ms
   minoTypes: {
