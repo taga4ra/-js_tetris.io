@@ -157,14 +157,16 @@ function makeLink() {
   const divLink = document.createElement("div");
   divLink.id = "link";
 
+  const divLinkBlock = document.createElement("div");
+  divLinkBlock.id = "linkblock";
+
   const srcCode = document.createElement("a");
   srcCode.href = "https://github.com/taga4ra/js_tetris.io";
-  srcCode.textContent = "Source Code";
-  const slide = document.createElement("a");
-  slide.href = "./doc/slide.html";
-  slide.textContent = "Slide";
+  // srcCode.textContent = "Source Code & Slide";
+  srcCode.innerHTML = "<p>Source Code & Slide</p>";
 
-  divLink.append(srcCode, slide);
+  divLinkBlock.append(srcCode);
+  divLink.append(divLinkBlock);
 
   document.body.appendChild(divLink);
 }
