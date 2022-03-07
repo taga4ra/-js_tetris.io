@@ -1,6 +1,6 @@
 # Tetris in <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JS" width=30>
 
-## 制作風景
+# 制作風景
 
 <img src="https://c.tenor.com/VVOA7SCKgmkAAAAC/test.gif" alt="GIF" width=auto>
 
@@ -8,9 +8,7 @@
 
 この講習で見た目をいじる手段を学べたのが本当に大きい
 
----
-
-## 学んだこと、総動員
+# 学んだこと、総動員
 
 - deep/shallow copy でハマる...
   - ブロックが表示されず、ずっと真っ白状態
@@ -20,17 +18,13 @@
   - 色んなブラウザでチェックするとブラウザ独自の CSS があたっていたりするので注意
   - CSS が更新されないときは **Shift 押しながら更新**
 
----
-
-## Tetris で工夫したこと
+# Tetris で工夫したこと
 
 - タイトル部分以外は DOM 操作で生成
   - JS 操作で機能追加が簡単
   - 動的に生成しているので,定数を変更すれば,色々と変更できるように
 - 操作する関数(`control.js`)と表示する関数(`view.js`)を分離する
   - ボタンを増やしたり,スマホ対応が簡単
-
----
 
 # 参考
 
