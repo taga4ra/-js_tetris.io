@@ -41,8 +41,7 @@ if (isSmartPhone()) {
 
   // set smaller table
   config.tableHeight = 16;
-  cells.showCells = generateCell();
-  cells.fixedCells = generateCell();
+  resetCellsAndMino();
 } else {
   // draw description
   makeDescription();
