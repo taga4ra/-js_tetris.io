@@ -60,6 +60,10 @@ if (isSmartPhone()) {
 //make link
 makeLink();
 
+//make link
+if (!isSmartPhone()) {
+  drawSetting();
+}
 // enable img controler
 applyOnclick();
 

@@ -189,6 +189,28 @@ function makeLink() {
   document.body.appendChild(divLink);
 }
 
+function drawSetting() {
+  const divLink = document.querySelector(".link");
+  const divSetting = document.createElement("div");
+  divSetting.id = "setting";
+  divSetting.innerHTML = "<p>□■□</p>";
+
+  const divSettingPanel = document.createElement("div");
+  divSettingPanel.id = "settingPanel";
+  divSettingPanel.style.visibility = "hidden";
+
+  const divSwitchMode = document.createElement("div");
+  divSwitchMode.id = "switchmode";
+  divSwitchMode.innerHTML = "<p>■Switch Debug mode</p>";
+  divSwitchMode.onclick = switchDebugMode;
+
+  divSetting.onclick = showSettingPanel;
+
+  divSettingPanel.appendChild(divSwitchMode);
+  divSetting.appendChild(divSettingPanel);
+  document.body.appendChild(divSetting);
+}
+
 function updateView() {
   //cells
   cells.showCells.forEach((arr, col) => {
