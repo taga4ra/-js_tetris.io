@@ -2,7 +2,7 @@
 
 # 制作風景
 
-<img src="https://c.tenor.com/VVOA7SCKgmkAAAAC/test.gif" alt="GIF" width=auto>
+<img src="./img/cropped_making.gif" alt="GIF" width=auto>
 
 やっぱり動いたり操作できるのは楽しい!!
 
