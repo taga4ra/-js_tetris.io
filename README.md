@@ -21,6 +21,7 @@
   - 色んなブラウザでチェックするとブラウザ独自の CSS があたっていたりするので注意
   - CSS が更新されないときは **Shift 押しながら更新**
 - データモデリング = 設計が非常に大切(あとから追加したい機能が実装難しい)
+  - 紙などに図で書いて整理するとわかりやすかった
   - ここは慣れが必要?!
 
 # Tetris 製作時に工夫したこと
@@ -40,10 +41,10 @@ sequenceDiagram
 rect rgb(240, 240, 240)
 activate Browser
 Note Right of Browser: DOM生成
-Browser->>view.js: 1.ゲーム説明文
-Browser->>view.js: 2.左パネル(ゲーム画面)
-Browser->>view.js: 3.右パネル(スコア,次のブロック)
-Browser->>view.js: 4.リンク
+view.js->>Browser: 1.ゲーム説明文
+view.js->>Browser: 2.左パネル(ゲーム画面)
+view.js->>Browser: 3.右パネル(スコア,次のブロック)
+view.js->>Browser: 4.リンク
 deactivate Browser
 end
 
